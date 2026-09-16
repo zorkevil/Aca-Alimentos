@@ -1,0 +1,44 @@
+// =============================================================================
+// VARIABLES — COOPERACIÓN
+// =============================================================================
+
+@use 'sass:map';
+@use 'variables-global' as *;
+@forward 'variables-global';
+
+// Colors
+$colors: (
+  1: #194A9A,   // Dark blue
+  2: #00AF3C,   // Green
+  3: #DA2D3A,   // Red
+  4: #86C0F1,   // Light blue
+  5: #9ECCF3,   // Light blue 80%
+  6: #E7F2FC,   // Very light blue
+  7: #BAC9E1,   // Muted blue (#194A9A at 30%)
+  8: #DBECFB,   // Very light blue (#86C0F1 at 30%)
+  9: #D2E8C0,   // Light green (#68B22D at 30%)
+  10: #EBF5E3,  // Light green (#DEEED1 at 60%)
+);
+
+$color-1: map.get($colors, 1);
+$color-2: map.get($colors, 2);
+$color-3: map.get($colors, 3);
+$color-4: map.get($colors, 4);
+$color-5: map.get($colors, 5);
+$color-6: map.get($colors, 6);
+$color-7: map.get($colors, 7);
+$color-8: map.get($colors, 8);
+$color-9: map.get($colors, 9);
+$color-10: map.get($colors, 10);
+
+// Gradients (top → bottom)
+$gradients: (
+  '9-8': ($color-9, $color-8),
+  '8-7': ($color-8, $color-7),
+  '6-4': ($color-6, $color-4),
+);
+
+// Typography
+// La fuente se auto-hospeda vía next/font/google (ver src/lib/fonts.ts), que expone
+// esta custom property en el layout de la marca.
+$font-family: var(--font-fira-sans), sans-serif;

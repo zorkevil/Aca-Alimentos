@@ -1,0 +1,1213 @@
+// =============================================================================
+// STYLES — PETLINK
+// =============================================================================
+
+@use 'variables-petlink' as *;
+@use 'bootstrap-custom';
+@use 'global';
+@use 'sass:color';
+@use 'sass:list';
+@use 'sass:string';
+@use 'sass:meta';
+
+@each $name, $stops in $gradients {
+  .bg-gradient-#{$name} { background: linear-gradient(to bottom, list.nth($stops, 1), list.nth($stops, 2)); }
+}
+
+// =============================================================================
+// FONTS
+// Phenomena se auto-hospeda vía next/font/local (ver src/lib/fonts.ts) — expone
+// la custom property --font-phenomena que $font-family referencia más abajo.
+// =============================================================================
+
+// =============================================================================
+// BASE
+// =============================================================================
+html {
+  scroll-padding-top: $header-height;
+}
+
+.brand-shell {
+  font-family: $font-family;
+  font-weight: 400;
+  font-size: 18px;
+  color: $color-9;
+  background-color: $color-5;
+  padding-top: $header-height;
+}
+
+// =============================================================================
+// TYPOGRAPHY
+// =============================================================================
+h1, .h1, h2, .h2, h3, .h3,
+h4, .h4, h5, .h5, h6, .h6 {
+  font-weight: 800;
+  color: $color-2;
+}
+
+h1, .h1 { font-size: 64px; }
+h2, .h2 { font-size: 64px; }
+h3, .h3 { font-size: 50px; }
+h4, .h4 { font-size: 36px; }
+h5, .h5 { font-size: 22px; }
+h6, .h6 { font-size: 18px; }
+
+@media (max-width: 767.98px) {
+  h1, .h1 { font-size: 28px; }
+  h2, .h2 { font-size: 26px; }
+  h3, .h3 { font-size: 24px; }
+  h4, .h4 { font-size: 22px; }
+  h5, .h5 { font-size: 18px; }
+  h6, .h6 { font-size: 16px; }
+  .lead { font-size: 18px; }
+}
+
+.lead { font-size: 24px; }
+small, .small { font-size: 14px; }
+
+// =============================================================================
+// LINKS
+// =============================================================================
+a {
+  color: $color-2;
+
+  &:hover {
+    color: color.adjust($color-2, $lightness: -5%);
+  }
+}
+
+a.text-color-3:hover {
+  color: color.adjust($color-3, $lightness: -5%);
+}
+
+// =============================================================================
+// BUTTONS
+// =============================================================================
+.btn {
+  font-size: 22px;
+  font-weight: 800;
+  border-radius: 15px;
+  padding: 12px 20px;
+  border-width: 1px;
+}
+
+.btn-primary {
+  --bs-btn-bg: #{$color-1};
+  --bs-btn-border-color: #{$color-1};
+  --bs-btn-color: #{$color-2};
+  --bs-btn-hover-bg: #{color.adjust($color-1, $lightness: -5%)};
+  --bs-btn-hover-border-color: #{color.adjust($color-1, $lightness: -5%)};
+  --bs-btn-hover-color: #{$color-2};
+  --bs-btn-active-bg: #{color.adjust($color-1, $lightness: -5%)};
+  --bs-btn-active-border-color: #{color.adjust($color-1, $lightness: -5%)};
+  --bs-btn-active-color: #{$color-2};
+
+  &:focus-visible {
+    box-shadow: 0px 0px 12px 0px rgba($color-2, 0.5);
+  }
+}
+
+.btn-outline-primary {
+  --bs-btn-color: #{$color-2};
+  --bs-btn-border-color: #{$color-2};
+  --bs-btn-hover-bg: #{$color-2};
+  --bs-btn-hover-border-color: #{$color-2};
+  --bs-btn-hover-color: white;
+  --bs-btn-active-bg: #{$color-2};
+  --bs-btn-active-border-color: #{$color-2};
+  --bs-btn-active-color: white;
+  background-color: transparent;
+
+  &:focus-visible {
+    box-shadow: 0px 0px 12px 0px rgba($color-2, 0.5);
+  }
+}
+
+// =============================================================================
+// BADGES
+// =============================================================================
+.badge {
+  padding: 4px 10px;
+  font-weight: 700;
+  border-radius: 10px;
+  font-size: 13px;
+}
+
+// =============================================================================
+// BOX HOVER
+// =============================================================================
+.box-hover {
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 4px 12px 0px rgba($color-2, 0.3);
+  }
+}
+
+// =============================================================================
+// CHEVRON LIST
+// =============================================================================
+ul.chevron-list,
+ul.chevron-list-white {
+  list-style: none;
+  padding-left: 0;
+
+  li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+
+    &::before {
+      content: "\F285";
+      font-family: "bootstrap-icons";
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+  }
+}
+
+ul.chevron-list li::before { color: $color-1; }
+ul.chevron-list-white li::before { color: white; }
+
+// =============================================================================
+// FORM CHECKBOX (Bootstrap override with brand color)
+// =============================================================================
+.form-check-input {
+  border-color: $color-2;
+  background-color: $color-5;
+
+  &:checked {
+    background-color: $color-2;
+    border-color: $color-2;
+  }
+
+  &:focus {
+    border-color: $color-2;
+    box-shadow: 0 0 0 0.25rem rgba($color-2, 0.25);
+  }
+}
+
+.form-check-label {
+  color: $color-2;
+}
+
+// =============================================================================
+// FORMS
+// =============================================================================
+.form-label {
+  font-weight: 400;
+  font-size: 15px;
+  color: $color-2;
+}
+
+.form-control,
+.form-select {
+  color: $color-2;
+  background-color: $color-4;
+  border-radius: 10px;
+  padding: 12px 16px;
+
+  &:focus {
+    color: $color-2;
+    background-color: $color-4;
+    border-color: $color-2;
+    box-shadow: 0px 0px 8px 0px rgba($color-2, 0.15);
+  }
+}
+
+.form-select {
+  padding-right: 3rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='11' fill='%23#{string.slice(meta.inspect($color-1), 2)}'/%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none' d='M8 10l4 4 4-4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 24px;
+}
+
+.search-input {
+  padding-left: 3rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23#{string.slice(meta.inspect($color-2), 2)}' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: left 1rem center;
+  background-size: 18px;
+
+  &::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23#{string.slice(meta.inspect($color-2), 2)}' viewBox='0 0 16 16'%3E%3Cpath d='M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+}
+
+// Tom Select — match the native .form-select look/height
+.ts-wrapper {
+  .ts-control {
+    color: $color-2 !important;
+    background-color: $color-4 !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='11' fill='%23#{string.slice(meta.inspect($color-1), 2)}'/%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none' d='M8 10l4 4 4-4'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 0.75rem center !important;
+    background-size: 24px !important;
+    border: 1px solid #dee2e6 !important;
+    border-radius: 10px !important;
+    padding: 12px 3rem 12px 16px !important;
+
+    &::after {
+      display: none !important;
+    }
+
+    .item {
+      padding: 0 !important;
+      color: $color-2 !important;
+
+      &[data-value=""] {
+        color: var(--bs-secondary-color) !important;
+      }
+    }
+  }
+
+  &.focus .ts-control {
+    border-color: $color-2 !important;
+    box-shadow: 0px 0px 8px 0px rgba($color-2, 0.15) !important;
+    outline: 0 !important;
+  }
+
+  .ts-dropdown {
+    background-color: white !important;
+    border: 1px solid $color-2 !important;
+    border-radius: 10px !important;
+    box-shadow: 0px 0px 12px 0px rgba($color-2, 0.3) !important;
+    margin-top: 0.25rem;
+
+    .option {
+      padding: 12px 16px !important;
+      border-radius: 5px !important;
+      margin: 4px 8px !important;
+
+      &:hover,
+      &.active {
+        background-color: rgba($color-2, 0.1) !important;
+        color: $color-2 !important;
+      }
+    }
+  }
+}
+
+// =============================================================================
+// CONTACT
+// =============================================================================
+.contact-hero {
+  background-image: url('/images/petlink/fondo-contacto-hero.jpg');  background-position: center bottom;
+
+}
+
+// =============================================================================
+// QUIENES SOMOS
+// =============================================================================
+.about-hero {
+  background-image: url('/images/petlink/fondo-quienes-somos-hero.jpg');  background-position: center bottom;
+
+}
+
+#who-its-for {
+  background-image: url('/images/petlink/fondo-para-quienes.jpg');  background-position: center;
+
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+
+    li {
+      color: $color-2;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+
+      &::before {
+        content: '\F26E';
+        font-family: 'bootstrap-icons';
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 28px;
+        margin-top: 0.25em;
+        border-radius: 50%;
+        background-color: $color-2;
+        color: white;
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+// =============================================================================
+// FAQS
+// =============================================================================
+.faqs-hero {
+  background-image: url('/images/petlink/fondo-faqs-hero.jpg');  background-position: center bottom;
+
+}
+
+// =============================================================================
+// BOND
+// =============================================================================
+#bond-showcase {
+  position: relative;
+  isolation: isolate;
+
+  > .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .miscelanea-left {
+    position: absolute;
+    left: 0;
+    top: 0%;
+    transform: translateY(-50%);
+    width: 574px;
+    z-index: 1;
+    pointer-events: none;
+    animation: deco-float 4s ease-in-out 0.2s infinite;
+  }
+
+  .miscelanea-right {
+    position: absolute;
+    right: 0;
+    top: 80%;
+    transform: translateY(-50%);
+    width: 436px;
+    z-index: 1;
+    pointer-events: none;
+    animation: deco-float 4s ease-in-out 0.8s infinite;
+  }
+}
+
+.bond-hero {
+  background-image: url('/images/petlink/fondo-vinculo-hero.jpg');  background-position: center bottom;
+
+}
+
+.bond-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+
+  @media (min-width: 1200px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 767.98px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.bond-box {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  height: 260px;
+  padding: 0;
+  border: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  text-align: left;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-2;
+    outline-offset: 2px;
+  }
+
+  &:hover,
+  &[aria-expanded="true"] {
+    box-shadow: 0px 4px 12px 0px rgba($color-2, 0.3);
+  }
+
+  &[aria-expanded="true"] {
+    outline: 2px solid $color-2;
+    outline-offset: -2px;
+
+    .bond-box-content {
+      background-color: $color-2;
+
+      h3 {
+        color: $color-1;
+      }
+
+      p {
+        color: white !important;
+      }
+    }
+
+    .bond-box-icon {
+      background-image: var(--icon-active);
+    }
+  }
+
+  .bond-box-content {
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+    padding: 1.5rem;
+    background-color: $color-7;
+    transition: background-color 0.3s ease;
+  }
+
+  .bond-box-icon {
+    display: block;
+    width: 32px;
+    height: 32px;
+    background-image: var(--icon-default);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 0.75rem;
+  }
+
+  .bond-box-image {
+    display: block;
+    width: 45%;
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+.bond-detail-wrap {
+  grid-column: 1 / -1;
+  overflow: hidden;
+}
+
+.bond-detail {
+  position: relative;
+  border-radius: 20px;
+  padding: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -14px;
+    left: var(--arrow-left, 50%);
+    transform: translateX(-50%);
+    border-left: 14px solid transparent;
+    border-right: 14px solid transparent;
+    border-bottom: 14px solid $color-2;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .bond-box {
+    height: auto;
+    min-height: 200px;
+  }
+}
+
+.feeding-cta {
+  background-image: url('/images/petlink/fondo-alimentarlo.jpg');  background-position: center;
+
+}
+
+// =============================================================================
+// 404
+// =============================================================================
+.error-404-hero {
+  background-image: url('/images/petlink/fondo-404-hero.jpg');  background-position: center bottom;
+
+}
+
+// =============================================================================
+// HEADER & NAVIGATION
+// =============================================================================
+header {
+  background-color: $color-2;
+  height: $header-height;
+
+  .navbar {
+    height: 100%;
+  }
+}
+
+.navbar {
+  .offcanvas {
+    background-color: $color-2;
+
+    .btn-close {
+      filter: invert(1) grayscale(100%) brightness(200%);
+    }
+
+    .offcanvas-header {
+      height: $header-height;
+    }
+
+    .offcanvas-title img {
+      height: 50px;
+      width: auto;
+    }
+  }
+
+  &.fixed-top {
+    box-shadow: 0 2px 4px rgba($color-2, 0.1);
+  }
+
+  .navbar-logo {
+    height: 50px;
+    width: auto;
+  }
+
+  .nav-link {
+    color: white;
+    transition: color 0.3s ease;
+    font-size: 18px;
+    font-weight: 400;
+
+    &:hover {
+      color: $color-1;
+    }
+
+    &.active {
+      font-weight: 800;
+    }
+  }
+
+  .navbar-brand {
+    color: white;
+    &:hover { color: $color-1; }
+  }
+
+  .navbar-collapse { flex-grow: 0; }
+
+  .navbar-nav {
+    margin: 0 auto;
+
+    .nav-item {
+      margin-right: 40px;
+      &:last-child { margin-right: 0; }
+    }
+  }
+
+  .offcanvas .navbar-nav .nav-item {
+    margin-right: 0;
+  }
+}
+
+// =============================================================================
+// FOOTER
+// =============================================================================
+footer {
+  background-color: $color-2;
+  color: white;
+  font-size: 15px;
+
+  .footer-logo {
+    height: 68px;
+    width: auto;
+  }
+
+  .footer-aca-logo {
+    height: 60px;
+    width: auto;
+    filter: brightness(0) invert(1);
+  }
+
+  .footer-link {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $color-1;
+    }
+  }
+
+  .footer-social {
+    color: white;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $color-1;
+    }
+  }
+
+  .footer-divider {
+    color: white;
+    opacity: 0.5;
+    margin: 0;
+  }
+}
+
+// =============================================================================
+// PAGINATION
+// =============================================================================
+.pagination {
+  position: relative;
+
+  .page-item {
+    .page-link {
+      border: none;
+      background-color: transparent;
+      color: $color-2;
+      border-radius: 50%;
+      width: 26px;
+      height: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 4px;
+
+      &:hover {
+        background-color: $color-1;
+        color: $color-2;
+      }
+    }
+
+    &.active .page-link {
+      background-color: $color-1;
+      color: $color-2;
+
+      &:hover {
+        background-color: $color-1;
+        color: $color-2;
+      }
+    }
+
+    .page-link-arrow {
+      color: $color-1;
+
+      &:hover {
+        background-color: $color-1;
+        color: $color-2;
+      }
+    }
+  }
+}
+
+// =============================================================================
+// ACCORDION
+// =============================================================================
+.accordion-item {
+  background-color: $color-4;
+  border-radius: 15px !important;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.accordion-button {
+  background-color: $color-4;
+  color: $color-2;
+  font-size: 34px;
+
+  &:not(.collapsed) {
+    background-color: $color-4;
+    color: $color-2;
+  }
+
+  &::after {
+    filter: brightness(0) saturate(100%) invert(25%) sepia(79%) saturate(6603%) hue-rotate(18deg) brightness(106%) contrast(77%);
+  }
+}
+
+.accordion-body {
+  background-color: $color-4;
+  color: $color-9;
+  font-size: 18px;
+}
+
+// =============================================================================
+// TABLES
+// =============================================================================
+.table {
+  width: auto;
+  font-size: 13px;
+  border: 1px solid $color-2;
+  border-radius: 10px;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+
+  th,
+  td {
+    background-color: white;
+    color: $color-2 !important;
+    vertical-align: top;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border: 0;
+    border-right: 1px solid $color-2;
+    border-bottom: 1px solid $color-2;
+  }
+
+  tr > th:last-child,
+  tr > td:last-child {
+    border-right: 0;
+  }
+
+  tbody > tr:last-child > th,
+  tbody > tr:last-child > td {
+    border-bottom: 0;
+  }
+}
+
+// =============================================================================
+// CAROUSEL
+// =============================================================================
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: brightness(0) saturate(100%) invert(25%) sepia(79%) saturate(6603%) hue-rotate(18deg) brightness(106%) contrast(77%);
+}
+
+// =============================================================================
+// PRODUCT PAGE — THUMBNAILS
+// =============================================================================
+.product-thumbnails {
+  position: static;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  right: auto;
+  bottom: auto;
+  left: auto;
+}
+
+.product-thumbnails .product-thumbnail {
+  width: 72px !important;
+  height: auto !important;
+  flex: none !important;
+  text-indent: 0 !important;
+  opacity: 1 !important;
+  background-color: transparent !important;
+  background-clip: unset !important;
+  border: 2px solid transparent !important;
+  border-radius: 4px;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color 0.2s;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  &.active,
+  &:hover {
+    border-color: $color-1 !important;
+  }
+}
+
+// =============================================================================
+// WAVE FOOTER DIVIDER
+// =============================================================================
+main > section:last-of-type {
+  position: relative;
+  isolation: isolate;
+  padding-bottom: calc(3rem + 100px) !important;
+
+  @media (min-width: 576px)  { padding-bottom: calc(3rem + 130px) !important; }
+  @media (min-width: 768px)  { padding-bottom: calc(5rem + 160px) !important; }
+  @media (min-width: 992px)  { padding-bottom: calc(5rem + 190px) !important; }
+  @media (min-width: 1200px) { padding-bottom: calc(5rem + 220px) !important; }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 180' preserveAspectRatio='none'%3E%3Cpath d='M0 120 Q600 -120 1200 120 L1200 180 L0 180 Z' fill='%23D2451D'/%3E%3Cpath d='M0 120 Q600 -120 1200 120 L1200 130 Q600 -110 0 130 Z' fill='%23FCC358'/%3E%3C/svg%3E");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    z-index: -1;
+
+    @media (min-width: 576px)  { height: 130px; }
+    @media (min-width: 768px)  { height: 160px; }
+    @media (min-width: 992px)  { height: 190px; }
+    @media (min-width: 1200px) { height: 220px; }
+  }
+}
+
+// =============================================================================
+// ARTICLE CONTENT
+// =============================================================================
+.article-content {
+  h2 {
+    margin-bottom: 1.5rem;
+  }
+
+  .article-section {
+    margin-bottom: 3rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  p {
+    margin-bottom: 1.5rem;
+  }
+}
+
+// =============================================================================
+// HEADING HR
+// =============================================================================
+.heading-hr {
+  opacity: 1;
+  width: 57px;
+  --bs-border-width: 8px;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: $color-1;
+  border-radius: 2px;
+}
+
+// =============================================================================
+// DECORATIVE ANIMATIONS
+// =============================================================================
+@keyframes deco-float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-24px); }
+}
+
+@keyframes deco-rotate {
+  0%, 100% { transform: rotate(0deg); }
+  50%       { transform: rotate(6deg); }
+}
+
+// =============================================================================
+// HERO CAROUSEL
+// =============================================================================
+.hero-slide {
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  padding-bottom: calc(100vw * 500 / 1920);
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    .row { min-height: 500px; }
+  }
+
+  .hero-logo {
+    height: auto;
+    max-height: 100px;
+    max-width: 100%;
+  }
+
+  .hero-heart {
+    position: absolute;
+    left: 35%;
+    top: 30%;
+    width: 89px;
+    animation: deco-rotate 6s ease-in-out infinite;
+  }
+}
+
+.hero-slide-1 {
+  background-image: url('/images/petlink/fondo-home-slider-01.jpg');
+  background-position: right center;
+
+}
+
+.hero-slide-2 {
+  background-image: url('/images/petlink/fondo-home-slider-01.jpg');
+  background-position: right center;
+
+}
+
+#heroCarousel {
+  .carousel-indicators {
+    margin-bottom: calc(2rem + 100vw * 500 / 1920);
+
+    [data-bs-target] {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: none;
+      opacity: 0.5;
+      background-color: white;
+      margin: 0 6px;
+
+      &.active {
+        opacity: 1;
+        background-color: white;
+      }
+    }
+  }
+}
+
+// =============================================================================
+// HERO — PRODUCT BAG IMAGE
+// =============================================================================
+#hero {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 180' preserveAspectRatio='none'%3E%3Cpath d='M0 60 Q600 300 1200 60 L1200 180 L0 180 Z' fill='%23#{string.slice(meta.inspect($color-5), 2)}'/%3E%3Cpath d='M0 60 Q600 300 1200 60 L1200 50 Q600 290 0 50 Z' fill='%23#{string.slice(meta.inspect($color-1), 2)}'/%3E%3C/svg%3E");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    z-index: 1;
+
+    @media (min-width: 576px)  { height: 130px; }
+    @media (min-width: 768px)  { height: 160px; }
+    @media (min-width: 992px)  { height: 190px; }
+    @media (min-width: 1200px) { height: 220px; }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 30%);
+    width: 50%;
+    height: calc(80vw * 969 / 1920);
+    background-image: url('/images/petlink/img-bolsas-alimentos.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    pointer-events: none;
+    z-index: 2;
+  }
+}
+
+
+// =============================================================================
+// WHY PETLINK — EXTRA TOP PADDING FOR BAG OVERLAP
+// =============================================================================
+#why-petlink {
+  padding-top: calc(3rem + 100vw * 200 / 1920) !important;
+}
+
+// =============================================================================
+// STRENGTHEN BOND
+// =============================================================================
+#strengthen-bond {
+  background-image: url('/images/petlink/fondo-fortalece.jpg');
+  background-size: cover;
+  background-position: center top;
+  position: relative;
+  isolation: isolate;
+  padding-top: calc(3rem + 100vw * 500 / 1920) !important;
+  padding-bottom: calc(3rem + 100vw * 500 / 1920) !important;
+
+  .img-chico-perro {
+    animation: deco-float 5s ease-in-out 0.2s infinite;
+  }
+
+  .miscelanea-left {
+    position: absolute;
+    left: 0;
+    top: 70%;
+    transform: translateY(-50%);
+    width: 200px;
+    z-index: 3;
+    pointer-events: none;
+    animation: deco-float 4s ease-in-out 0.2s infinite;
+  }
+
+  @media (min-width: 992px) {
+    padding-top: calc(3rem + 100vw * 50 / 1920) !important;
+  }
+
+  > .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background-image:
+      url('/images/petlink/img-divisor.svg'),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 180' preserveAspectRatio='none'%3E%3Cpath d='M0 60 Q600 300 1200 60 L1200 0 L0 0 Z' fill='%23#{string.slice(meta.inspect($color-5), 2)}'/%3E%3Cpath d='M0 60 Q600 300 1200 60 L1200 50 Q600 290 0 50 Z' fill='%23#{string.slice(meta.inspect($color-1), 2)}'/%3E%3C/svg%3E");
+    background-size: clamp(80px, calc(100vw * 127 / 1920), 127px) auto, 100% 100%;
+    background-position: center bottom 5px, top;
+    background-repeat: no-repeat, no-repeat;
+    pointer-events: none;
+    z-index: 1;
+
+    @media (min-width: 576px)  { height: 130px; }
+    @media (min-width: 768px)  { height: 160px; }
+    @media (min-width: 992px)  { height: 190px; }
+    @media (min-width: 1200px) { height: 220px; }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 180' preserveAspectRatio='none'%3E%3Cpath d='M0 60 Q600 300 1200 60 L1200 180 L0 180 Z' fill='%23D2451D'/%3E%3Cpath d='M0 60 Q600 300 1200 60 L1200 50 Q600 290 0 50 Z' fill='%23FCC358'/%3E%3C/svg%3E");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    z-index: 1;
+
+    @media (min-width: 576px)  { height: 130px; }
+    @media (min-width: 768px)  { height: 160px; }
+    @media (min-width: 992px)  { height: 190px; }
+    @media (min-width: 1200px) { height: 220px; }
+  }
+}
+
+// =============================================================================
+// PRODUCTOS DESTACADOS CAROUSEL
+// =============================================================================
+#featured-products {
+  position: relative;
+  z-index: 2;
+
+  > .container {
+    margin-top: calc(-100vw * 500 / 1920);
+  }
+
+  .miscelanea-right {
+    position: absolute;
+    right: 0;
+    top: 90%;
+    transform: translateY(-50%);
+    width: 200px;
+    z-index: 3;
+    pointer-events: none;
+    animation: deco-float 4s ease-in-out 0.8s infinite;
+  }
+}
+
+#where-to-buy {
+  .map-character {
+    width: 120px;
+    bottom: -30px;
+    right: -40px;
+    animation: deco-float 4s ease-in-out 0.4s infinite;
+
+    @media (min-width: 992px) {
+      width: 215px;
+      bottom: -60px;
+      right: -80px;
+    }
+  }
+}
+
+.featured-products-swiper-wrap {
+  padding: 0 50px;
+  position: relative;
+
+  .featured-products-swiper-clip {
+    overflow: hidden;
+    padding: 8px;
+    margin: -8px;
+  }
+
+  .swiper {
+    overflow: visible;
+  }
+
+  .swiper-wrapper {
+    align-items: stretch;
+  }
+
+  .swiper-slide {
+    height: auto;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: var(--swiper-navigation-color, #{$color-1});
+    top: 50%;
+    transform: translateY(-50%);
+    margin-top: 0;
+    --swiper-navigation-size: 20px;
+    width: 48px;
+    height: 48px;
+  }
+
+  .swiper-button-prev { left: 0; }
+  .swiper-button-next { right: 0; }
+}
+
+// =============================================================================
+// REDES SOCIALES TABS
+// =============================================================================
+#social-media {
+  .nav-tabs {
+    border-bottom: none;
+  }
+
+  .social-tab-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    padding: 0;
+    border: 2px solid transparent;
+    background-color: transparent;
+    transition: all 0.3s ease;
+
+    i {
+      font-size: 40px;
+      line-height: 1;
+      color: $color-2 !important;
+    }
+
+    &:hover,
+    &.active {
+      background-color: $color-4 !important;
+      border: 2px solid $color-2 !important;
+    }
+  }
+}
+
+// =============================================================================
+// COLOR UTILITIES
+// =============================================================================
+@each $num, $color in $colors {
+  .text-color-#{$num} { color: $color; }
+  .bg-color-#{$num} { background-color: $color; }
+  .border-color-#{$num} { border-color: $color !important; }
+}

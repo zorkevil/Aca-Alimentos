@@ -1,0 +1,1085 @@
+// =============================================================================
+// STYLES — VALOR
+// =============================================================================
+
+@use 'variables-valor' as *;
+@use 'bootstrap-custom';
+@use 'global';
+@use 'sass:color';
+@use 'sass:list';
+@use 'sass:string';
+@use 'sass:meta';
+
+@each $name, $stops in $gradients {
+  .bg-gradient-#{$name} { background: linear-gradient(to bottom, list.nth($stops, 1), list.nth($stops, 2)); }
+}
+
+// =============================================================================
+// BASE
+// =============================================================================
+html {
+  scroll-padding-top: $header-height;
+}
+
+.brand-shell {
+  font-family: $font-family;
+  font-weight: 400;
+  font-size: 16px;
+  color: $color-2;
+  background-color: $color-14;
+  padding-top: $header-height;
+}
+
+// =============================================================================
+// TYPOGRAPHY
+// =============================================================================
+h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
+  font-family: $font-family-headings;
+  font-weight: 400;
+  color: $color-15;
+}
+
+.font-montserrat {
+  font-family: $font-family !important;
+}
+
+h5, .h5, h6, .h6 {
+  font-family: $font-family;
+  color: $color-15;
+}
+
+h1, .h1 { font-size: 80px; }
+h2, .h2 { font-size: 80px; }
+h3, .h3 { font-size: 60px; }
+h4, .h4 { font-size: 28px; }
+h5, .h5 { font-size: 22px; }
+h6, .h6 { font-size: 18px; }
+
+@media (max-width: 767.98px) {
+  h1, .h1 { font-size: 40px; }
+  h2, .h2 { font-size: 40px; }
+  h3, .h3 { font-size: 24px; }
+  h4, .h4 { font-size: 22px; }
+  h5, .h5 { font-size: 18px; }
+  h6, .h6 { font-size: 16px; }
+  .lead { font-size: 18px; }
+}
+
+.lead { font-size: 24px; }
+small, .small { font-size: 14px; }
+
+// =============================================================================
+// LINKS
+// =============================================================================
+a {
+  color: $color-2;
+
+  &:hover {
+    color: color.adjust($color-2, $lightness: -15%);
+  }
+}
+
+a.text-color-11:hover {
+  color: color.adjust($color-11, $lightness: -5%);
+}
+
+// =============================================================================
+// BUTTONS
+// =============================================================================
+.btn {
+  font-weight: 600;
+  border-radius: 5px;
+  padding: 12px 20px;
+  border-width: 1px;
+}
+
+.btn-primary {
+  --bs-btn-bg: #{$color-1};
+  --bs-btn-border-color: #{$color-1};
+  --bs-btn-hover-bg: #{color.adjust($color-1, $lightness: -5%)};
+  --bs-btn-hover-border-color: #{color.adjust($color-1, $lightness: -5%)};
+  --bs-btn-active-bg: #{color.adjust($color-1, $lightness: -5%)};
+  --bs-btn-active-border-color: #{color.adjust($color-1, $lightness: -5%)};
+
+  &:focus-visible {
+    box-shadow: 0px 0px 12px 0px rgba($color-2, 0.5);
+  }
+}
+
+.btn-outline-primary {
+  --bs-btn-color: #{$color-2};
+  --bs-btn-border-color: #{$color-2};
+  --bs-btn-hover-bg: #{$color-2};
+  --bs-btn-hover-border-color: #{$color-2};
+  --bs-btn-hover-color: white;
+  --bs-btn-active-bg: #{$color-2};
+  --bs-btn-active-border-color: #{$color-2};
+  --bs-btn-active-color: white;
+  background-color: transparent;
+
+  &:focus-visible {
+    box-shadow: 0px 0px 12px 0px rgba($color-2, 0.5);
+  }
+}
+
+// =============================================================================
+// BADGES
+// =============================================================================
+.badge {
+  padding: 4px 10px;
+  font-weight: 600;
+  border-radius: 10px;
+  font-size: 12px;
+}
+
+// =============================================================================
+// BOX HOVER
+// =============================================================================
+.box-hover {
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 4px 12px 0px rgba($color-2, 0.3);
+  }
+}
+
+// =============================================================================
+// CHEVRON LIST
+// =============================================================================
+ul.chevron-list,
+ul.chevron-list-white {
+  list-style: none;
+  padding-left: 0;
+
+  li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+
+    &::before {
+      content: "\F285";
+      font-family: "bootstrap-icons";
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+  }
+}
+
+ul.chevron-list li::before { color: $color-1; }
+ul.chevron-list-white li::before { color: white; }
+
+// =============================================================================
+// FORM CHECKBOX (Bootstrap override with brand color)
+// =============================================================================
+.form-check-input {
+  border-color: $color-2;
+  background-color: $color-13;
+
+  &[type="checkbox"] {
+    border-radius: 0;
+  }
+
+  &:checked {
+    background-color: $color-2;
+    border-color: $color-2;
+  }
+
+  &:focus {
+    border-color: $color-2;
+    box-shadow: 0 0 0 0.25rem rgba($color-2, 0.25);
+  }
+}
+
+.form-check-label {
+  color: $color-2;
+}
+
+// =============================================================================
+// FORMS
+// =============================================================================
+.form-label {
+  font-weight: 500;
+  font-size: 15px;
+  color: $color-2;
+}
+
+.form-control,
+.form-select {
+  color: $color-2;
+  background-color: $color-13;
+  border-radius: 10px;
+  padding: 12px 16px;
+
+  &:focus {
+    color: $color-2;
+    background-color: $color-13;
+    border-color: $color-2;
+    box-shadow: 0px 0px 8px 0px rgba($color-2, 0.15);
+  }
+}
+
+.form-select {
+  padding-right: 3rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='11' fill='%23#{string.slice(meta.inspect($color-1), 2)}'/%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none' d='M8 10l4 4 4-4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 24px;
+}
+
+.search-input {
+  padding-left: 3rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23#{string.slice(meta.inspect($color-2), 2)}' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: left 1rem center;
+  background-size: 18px;
+
+  &::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23#{string.slice(meta.inspect($color-2), 2)}' viewBox='0 0 16 16'%3E%3Cpath d='M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+}
+
+// Tom Select — match the native .form-select look/height
+.ts-wrapper {
+  .ts-control {
+    color: $color-2 !important;
+    background-color: $color-13 !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='11' fill='%23#{string.slice(meta.inspect($color-1), 2)}'/%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none' d='M8 10l4 4 4-4'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 0.75rem center !important;
+    background-size: 24px !important;
+    border: 1px solid #dee2e6 !important;
+    border-radius: 10px !important;
+    padding: 12px 3rem 12px 16px !important;
+
+    &::after {
+      display: none !important;
+    }
+
+    .item {
+      padding: 0 !important;
+      color: $color-2 !important;
+
+      &[data-value=""] {
+        color: var(--bs-secondary-color) !important;
+      }
+    }
+  }
+
+  &.focus .ts-control {
+    border-color: $color-2 !important;
+    box-shadow: 0px 0px 8px 0px rgba($color-2, 0.15) !important;
+    outline: 0 !important;
+  }
+
+  .ts-dropdown {
+    background-color: $color-13 !important;
+    border: 1px solid $color-2 !important;
+    border-radius: 10px !important;
+    box-shadow: 0px 0px 12px 0px rgba($color-2, 0.3) !important;
+    margin-top: 0.25rem;
+
+    .option {
+      padding: 12px 16px !important;
+      border-radius: 5px !important;
+      margin: 4px 8px !important;
+
+      &:hover,
+      &.active {
+        background-color: rgba($color-2, 0.1) !important;
+        color: $color-2 !important;
+      }
+    }
+  }
+}
+
+// =============================================================================
+// HEADER & NAVIGATION
+// =============================================================================
+header {
+  background-color: $color-2;
+  height: $header-height;
+
+  .navbar {
+    height: 100%;
+  }
+}
+
+.navbar {
+  .offcanvas {
+    background-color: $color-2;
+
+    .offcanvas-header {
+      height: $header-height;
+    }
+
+    .offcanvas-title img {
+      height: 50px;
+      width: auto;
+    }
+  }
+
+  &.fixed-top {
+    box-shadow: 0 2px 4px rgba($color-2, 0.1);
+  }
+
+  .navbar-logo {
+    height: 64px;
+    width: auto;
+  }
+
+  .nav-link {
+    color: white;
+    transition: color 0.3s ease;
+    font-size: 15px;
+    font-weight: 500;
+
+    &:hover {
+      color: $color-1;
+    }
+
+    &.active {
+      color: white;
+      font-weight: 800;
+    }
+  }
+
+  .navbar-brand {
+    color: white;
+    &:hover { color: $color-1; }
+  }
+
+  .navbar-collapse { flex-grow: 0; }
+
+  .navbar-nav {
+    margin: 0 auto;
+
+    .nav-item {
+      margin-right: 40px;
+      &:last-child { margin-right: 0; }
+    }
+  }
+
+  .offcanvas .navbar-nav .nav-item {
+    margin-right: 0;
+  }
+}
+
+// =============================================================================
+// FOOTER
+// =============================================================================
+footer {
+  background-color: $color-2;
+  color: white;
+  font-size: 15px;
+
+  .footer-logo {
+    height: 150px;
+    width: auto;
+  }
+
+  .footer-aca-logo {
+    height: 60px;
+    width: auto;
+    filter: brightness(0) invert(1);
+  }
+
+  .footer-link {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $color-1;
+    }
+  }
+
+  .footer-social {
+    color: white;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $color-1;
+    }
+  }
+
+  .footer-divider {
+    color: white;
+    opacity: 0.5;
+    margin: 0;
+  }
+}
+
+// =============================================================================
+// PAGINATION
+// =============================================================================
+.pagination {
+  .page-item {
+    .page-link {
+      border: none;
+      background-color: transparent;
+      color: $color-2;
+      border-radius: 50%;
+      width: 26px;
+      height: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 4px;
+
+      &:hover {
+        background-color: $color-1;
+        color: $color-2;
+      }
+    }
+
+    &.active .page-link {
+      background-color: $color-1;
+      color: $color-2;
+
+      &:hover {
+        background-color: $color-1;
+        color: $color-2;
+      }
+    }
+
+    .page-link-arrow {
+      color: $color-1;
+
+      &:hover {
+        background-color: $color-1;
+        color: $color-2;
+      }
+    }
+  }
+}
+
+// =============================================================================
+// ACCORDION
+// =============================================================================
+.accordion-item {
+  background-color: $color-12;
+  border-radius: 5px !important;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.accordion-button {
+  background-color: $color-12;
+  color: $color-2;
+  font-family: $font-family;
+  font-size: 20px;
+  font-weight: 700;
+
+  &:not(.collapsed) {
+    background-color: $color-12;
+    color: $color-2;
+  }
+
+  &::after {
+    filter: brightness(0) saturate(100%) invert(16%) sepia(33%) saturate(768%) hue-rotate(341deg) brightness(97%) contrast(89%);
+  }
+}
+
+.accordion-body {
+  background-color: $color-12;
+}
+
+// =============================================================================
+// TABLES
+// =============================================================================
+.table {
+  width: auto;
+  font-size: 13px;
+  border: 1px solid $color-2;
+  border-radius: 10px;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+
+  th,
+  td {
+    background-color: white;
+    color: $color-2 !important;
+    vertical-align: top;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border: 0;
+    border-right: 1px solid $color-2;
+    border-bottom: 1px solid $color-2;
+  }
+
+  tr > th:last-child,
+  tr > td:last-child {
+    border-right: 0;
+  }
+
+  tbody > tr:last-child > th,
+  tbody > tr:last-child > td {
+    border-bottom: 0;
+  }
+}
+
+// =============================================================================
+// CAROUSEL
+// =============================================================================
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: brightness(0) saturate(100%) invert(16%) sepia(33%) saturate(768%) hue-rotate(341deg) brightness(97%) contrast(89%);
+}
+
+// =============================================================================
+// PRODUCT PAGE — THUMBNAILS
+// =============================================================================
+.product-thumbnails {
+  position: static;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  right: auto;
+  bottom: auto;
+  left: auto;
+}
+
+.product-thumbnails .product-thumbnail {
+  width: 72px !important;
+  height: auto !important;
+  flex: none !important;
+  text-indent: 0 !important;
+  opacity: 1 !important;
+  background-color: transparent !important;
+  background-clip: unset !important;
+  border: 2px solid transparent !important;
+  border-radius: 4px;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color 0.2s;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  &.active,
+  &:hover {
+    border-color: $color-1 !important;
+  }
+}
+
+// =============================================================================
+// GRADIENT WRAPPER WITH SVG BACKGROUND
+// =============================================================================
+.bg-trees {
+  position: relative;
+  isolation: isolate;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/images/valor/fondo-arboles.svg');
+    background-size: 100% auto;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    z-index: -1;
+  }
+}
+
+// =============================================================================
+// CARD CORNER CUT (decorative bottom-right diagonal cut)
+// =============================================================================
+.card-corner-wrap {
+  filter: drop-shadow(0 .125rem .25rem rgba(0, 0, 0, 0.075));
+  height: 100%;
+}
+
+.card-corner-cut {
+  clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    100% calc(100% - 60px),
+    calc(100% - 60px) 100%,
+    0% 100%
+  );
+}
+
+// =============================================================================
+// SECTION DIVIDERS
+// =============================================================================
+.divider-right {
+  width: 50%;
+  margin-left: auto;
+  margin-right: -40px;
+  margin-top: 0;
+  margin-bottom: 0;
+  --bs-border-width: 40px;
+  opacity: 1;
+  color: $color-1;
+  transform: skewX(45deg);
+}
+
+.divider-left {
+  width: 50%;
+  margin-left: -40px;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  --bs-border-width: 40px;
+  opacity: 1;
+  color: $color-1;
+  transform: skewX(45deg);
+}
+
+// =============================================================================
+// HEADING HR
+// =============================================================================
+.heading-hr {
+  opacity: 1;
+  width: 57px;
+  --bs-border-width: 8px;
+  margin-top: 1.5rem;
+  margin-bottom: 0;
+  color: $color-1;
+  transform: skewX(-45deg);
+}
+
+.heading-hr-sm {
+  opacity: 1;
+  width: 32px;
+  --bs-border-width: 5px;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  color: $color-1;
+  transform: skewX(-45deg);
+}
+
+
+// =============================================================================
+// CONTACT
+// =============================================================================
+.nutricion-hero {
+  background-image: url('/images/valor/fondo-nutricion-hero.jpg');
+  background-position: center;
+}
+
+.contact-hero {
+  background-image: url('/images/valor/fondo-contacto-hero.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.about-hero {
+  background-image: url('/images/valor/fondo-quienes-somos-hero.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+// =============================================================================
+// NUTRICIÓN
+// =============================================================================
+.benefit-list {
+  position: relative;
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  column-gap: 1rem;
+  row-gap: 1.5rem;
+  align-items: start;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 25px;
+    bottom: 25px;
+    left: 25px;
+    width: 2px;
+    background-color: currentColor;
+
+    @media (max-width: 767.98px) {
+      bottom: 6px;
+    }
+  }
+
+  .benefit-icon {
+    position: relative;
+    z-index: 1;
+  }
+
+  p {
+    color: $color-2;
+  }
+}
+
+.product-bags-row {
+  margin-bottom: -40px;
+}
+
+// =============================================================================
+// QUIENES SOMOS
+// =============================================================================
+#who-its-for {
+  background-image: url('/images/valor/fondo-para-quienes.jpg');  background-position: center;
+
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+
+    li {
+      color: white;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+
+      &::before {
+        content: '\F26E';
+        font-family: 'bootstrap-icons';
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 28px;
+        margin-top: 0.25em;
+        border-radius: 50%;
+        background-color: $color-1;
+        color: white;
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+// =============================================================================
+// FAQS
+// =============================================================================
+.faqs-hero {
+  background-image: url('/images/valor/fondo-faqs-hero.jpg');  background-position: center;
+
+}
+
+// =============================================================================
+// 404
+// =============================================================================
+.error-404-hero {
+  background-image: url('/images/valor/fondo-404-hero.jpg');  background-position: center bottom;
+
+}
+
+// =============================================================================
+// ARTICLE CONTENT
+// =============================================================================
+.article-content {
+  h2 {
+    margin-bottom: 1.5rem;
+  }
+
+  .article-section {
+    margin-bottom: 3rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  p {
+    margin-bottom: 1.5rem;
+  }
+}
+
+// =============================================================================
+// HERO CAROUSEL
+// =============================================================================
+.hero-slide {
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  padding-bottom: calc(100vw * 500 / 1920);
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba($color-13, 0) 60%, $color-13 100%);
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+
+    .row { min-height: 500px; }
+  }
+
+  .hero-logo {
+    height: auto;
+    max-height: 200px;
+    max-width: 100%;
+  }
+}
+
+.hero-slide-1 {
+  background-image: url('/images/valor/fondo-home-slider-01.jpg');
+  background-position: right center;
+
+}
+
+.hero-slide-2 {
+  background-image: url('/images/valor/fondo-home-slider-01.jpg');
+  background-position: right center;
+
+}
+
+#heroCarousel {
+  .carousel-indicators {
+    margin-bottom: calc(2rem + 100vw * 500 / 1920);
+
+    [data-bs-target] {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: none;
+      opacity: 0.5;
+      background-color: $color-1;
+      margin: 0 6px;
+
+      &.active {
+        opacity: 1;
+        background-color: $color-1;
+      }
+    }
+  }
+}
+
+// =============================================================================
+// HERO — PRODUCT BAG IMAGE
+// =============================================================================
+#hero {
+  position: relative;
+  z-index: 1;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 32%);
+    width: 70%;
+    height: calc(80vw * 525 / 1920);
+    background-image: url('/images/valor/img-bolsas-alimentos.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    pointer-events: none;
+    z-index: 2;
+  }
+}
+
+#nutrition-benefits {
+  position: relative;
+  z-index: 1;
+  padding-top: calc(3rem + 100vw * 200 / 1920) !important;
+}
+
+// =============================================================================
+// PRODUCTOS DESTACADOS CAROUSEL
+// =============================================================================
+.featured-products-swiper-wrap {
+  padding: 0 50px;
+  position: relative;
+
+  .featured-products-swiper-clip {
+    overflow: hidden;
+    padding: 8px;
+    margin: -8px;
+  }
+
+  .swiper-slide {
+    height: auto;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: white;
+    background-color: #{$color-7};
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-top: 0;
+    --swiper-navigation-size: 20px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .swiper-button-prev { left: 0; }
+  .swiper-button-next { right: 0; }
+}
+
+// =============================================================================
+// TABS
+// =============================================================================
+.nav-underline {
+  --bs-nav-underline-link-active-color: #{$color-1};
+  --bs-nav-underline-border-width: 5px;
+  --bs-nav-link-color: #{$color-2};
+  --bs-nav-link-hover-color: #{$color-2};
+  --bs-nav-link-font-weight: 700;
+  --bs-nav-link-font-size: 18px;
+
+  .nav-link {
+    padding: 0.75rem 1.25rem;
+  }
+}
+
+#productsTabs {
+  --bs-nav-underline-link-active-color: #{$color-7};
+}
+
+#socialTabs {
+  --bs-nav-underline-link-active-color: #{$color-10};
+}
+
+#social-media .nav-link {
+  width: 84px;
+  height: 84px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  i {
+    font-size: 40px;
+    line-height: 1;
+  }
+}
+
+// =============================================================================
+// SIDE DECORATIONS (Productos destacados / Redes sociales)
+// =============================================================================
+#featured-products,
+#social-media {
+  position: relative;
+}
+
+.deco-side {
+  position: absolute;
+  pointer-events: none;
+  display: none;
+
+  @media (min-width: 992px) {
+    display: block;
+  }
+}
+
+.deco-side-left {
+  top: 0;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.deco-side-right {
+  bottom: 0;
+  right: 0;
+  transform: translateY(50%) scaleX(-1);
+}
+
+// =============================================================================
+// DÓNDE COMPRAR
+// =============================================================================
+#where-to-buy {
+  background-image: url('/images/valor/fondo-nutriendo-el-instinto.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  z-index: 1;
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/images/valor/overlay-plantas-02.png');
+    background-size: 100% auto;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    pointer-events: none;
+  }
+}
+
+// =============================================================================
+// BOTTOM DECORATION (reused across pages)
+// =============================================================================
+.deco-bottom {
+  position: relative;
+  isolation: isolate;
+  z-index: 1;
+  padding-bottom: calc(3rem + 100vw * 292 / 1920) !important;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/images/valor/overlay-plantas-03.png');
+    background-size: 100% auto;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    z-index: -1;
+  }
+}
+// =============================================================================
+// COLOR UTILITIES
+// =============================================================================
+@each $num, $color in $colors {
+  .text-color-#{$num} { color: $color; }
+  .bg-color-#{$num} { background-color: $color; }
+  .border-color-#{$num} { border-color: $color !important; }
+
+  .btn-color-#{$num} {
+    --bs-btn-color: white;
+    --bs-btn-bg: #{$color};
+    --bs-btn-border-color: #{$color};
+    --bs-btn-hover-color: white;
+    --bs-btn-hover-bg: #{color.adjust($color, $lightness: -8%)};
+    --bs-btn-hover-border-color: #{color.adjust($color, $lightness: -8%)};
+    --bs-btn-active-color: white;
+    --bs-btn-active-bg: #{color.adjust($color, $lightness: -8%)};
+    --bs-btn-active-border-color: #{color.adjust($color, $lightness: -8%)};
+  }
+
+  .btn-outline-color-#{$num} {
+    --bs-btn-color: #{$color};
+    --bs-btn-border-color: #{$color};
+    --bs-btn-hover-color: white;
+    --bs-btn-hover-bg: #{$color};
+    --bs-btn-hover-border-color: #{$color};
+    --bs-btn-active-color: white;
+    --bs-btn-active-bg: #{$color};
+    --bs-btn-active-border-color: #{$color};
+    background-color: transparent;
+  }
+}

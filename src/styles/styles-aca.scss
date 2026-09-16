@@ -1,0 +1,896 @@
+﻿// =============================================================================
+// STYLES — ACA ALIMENTOS
+// =============================================================================
+
+@use 'variables-aca' as *;
+@use 'bootstrap-custom';
+@use 'global';
+@use 'sass:color';
+@use 'sass:string';
+@use 'sass:meta';
+
+// =============================================================================
+// BASE
+// =============================================================================
+html {
+  scroll-padding-top: $header-height;
+}
+
+.brand-shell {
+  font-family: $font-family;
+  font-weight: 400;
+  font-size: 16px;
+  color: $color-4;
+  background-color: $color-10;
+  padding-top: $header-height;
+}
+
+// =============================================================================
+// TYPOGRAPHY
+// =============================================================================
+h1, .h1, h2, .h2, h3, .h3,
+h4, .h4, h5, .h5, h6, .h6 {
+  font-weight: 600;
+  color: $color-5;
+
+  span { color: $color-6; }
+}
+
+h1, .h1 { font-size: 40px; }
+h2, .h2 { font-size: 38px; }
+h3, .h3 { font-size: 32px; }
+h4, .h4 { font-size: 28px; }
+h5, .h5 { font-size: 22px; }
+h6, .h6 { font-size: 18px; }
+
+@media (max-width: 767.98px) {
+  h1, .h1 { font-size: 28px; }
+  h2, .h2 { font-size: 26px; }
+  h3, .h3 { font-size: 24px; }
+  h4, .h4 { font-size: 22px; }
+  h5, .h5 { font-size: 18px; }
+  h6, .h6 { font-size: 16px; }
+  .lead { font-size: 18px; }
+}
+
+.lead { font-size: 24px; }
+small, .small { font-size: 14px; }
+
+// =============================================================================
+// LINKS
+// =============================================================================
+a {
+  color: $color-1;
+
+  &:hover {
+    color: color.adjust($color-1, $lightness: -5%);
+  }
+}
+
+a.text-color-3:hover {
+  color: color.adjust($color-3, $lightness: -5%);
+}
+
+// =============================================================================
+// BUTTONS
+// =============================================================================
+.btn {
+  font-weight: 600;
+  border-radius: 15px;
+  padding: 12px 20px;
+  border-width: 1px;
+}
+
+.btn-primary {
+  --bs-btn-bg: #{$color-1};
+  --bs-btn-border-color: #{$color-1};
+  --bs-btn-hover-bg: #{color.adjust($color-1, $lightness: -5%)};
+  --bs-btn-hover-border-color: #{color.adjust($color-1, $lightness: -5%)};
+  --bs-btn-active-bg: #{color.adjust($color-1, $lightness: -5%)};
+  --bs-btn-active-border-color: #{color.adjust($color-1, $lightness: -5%)};
+
+  &:focus-visible {
+    box-shadow: 0px 0px 12px 0px rgba($color-2, 0.5);
+  }
+}
+
+.btn-secondary {
+  --bs-btn-bg: #{$color-2};
+  --bs-btn-border-color: #{$color-2};
+  --bs-btn-hover-bg: #{color.adjust($color-2, $lightness: -5%)};
+  --bs-btn-hover-border-color: #{color.adjust($color-2, $lightness: -5%)};
+  --bs-btn-active-bg: #{color.adjust($color-2, $lightness: -5%)};
+  --bs-btn-active-border-color: #{color.adjust($color-2, $lightness: -5%)};
+
+  &:focus-visible {
+    box-shadow: 0px 0px 12px 0px rgba($color-2, 0.5);
+  }
+}
+
+.btn-tertiary {
+  --bs-btn-bg: #{$color-11};
+  --bs-btn-border-color: #{$color-11};
+  --bs-btn-color: white;
+  --bs-btn-hover-bg: #{color.adjust($color-11, $lightness: -5%)};
+  --bs-btn-hover-border-color: #{color.adjust($color-11, $lightness: -5%)};
+  --bs-btn-hover-color: white;
+  --bs-btn-active-bg: #{color.adjust($color-11, $lightness: -5%)};
+  --bs-btn-active-border-color: #{color.adjust($color-11, $lightness: -5%)};
+  --bs-btn-active-color: white;
+
+  &:focus-visible {
+    box-shadow: 0px 0px 12px 0px rgba($color-11, 0.5);
+  }
+}
+
+.btn-outline-primary {
+  --bs-btn-color: #{$color-1};
+  --bs-btn-border-color: #{$color-1};
+  --bs-btn-hover-bg: #{$color-1};
+  --bs-btn-hover-border-color: #{$color-1};
+  --bs-btn-hover-color: white;
+  --bs-btn-active-bg: #{$color-1};
+  --bs-btn-active-border-color: #{$color-1};
+  --bs-btn-active-color: white;
+  background-color: transparent;
+
+  &:focus-visible {
+    box-shadow: 0px 0px 12px 0px rgba($color-2, 0.5);
+  }
+}
+
+// =============================================================================
+// BADGES
+// =============================================================================
+.badge {
+  padding: 4px 10px;
+  font-weight: 600;
+  border-radius: 10px;
+  font-size: 12px;
+}
+
+// =============================================================================
+// BOX HOVER
+// =============================================================================
+.box-hover {
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 4px 12px 0px rgba($color-2, 0.3);
+  }
+}
+
+// =============================================================================
+// CHEVRON LIST
+// =============================================================================
+ul.chevron-list,
+ul.chevron-list-white {
+  list-style: none;
+  padding-left: 0;
+
+  li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+
+    &::before {
+      content: "\F285";
+      font-family: "bootstrap-icons";
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+  }
+}
+
+ul.chevron-list li::before { color: $color-1; }
+ul.chevron-list-white li::before { color: white; }
+
+// =============================================================================
+// FORM CHECKBOX (Bootstrap override with brand color)
+// =============================================================================
+.form-check-input {
+  border-color: $color-2;
+
+  &:checked {
+    background-color: $color-2;
+    border-color: $color-2;
+  }
+
+  &:focus {
+    border-color: $color-2;
+    box-shadow: 0 0 0 0.25rem rgba($color-2, 0.25);
+  }
+}
+
+// =============================================================================
+// FORMS
+// =============================================================================
+.form-label {
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.form-control,
+.form-select {
+  color: $color-2;
+  background-color: white;
+  border-radius: 10px;
+  padding: 12px 16px;
+
+  &:focus {
+    color: $color-2;
+    background-color: white;
+    border-color: $color-2;
+    box-shadow: 0px 0px 8px 0px rgba($color-2, 0.15);
+  }
+}
+
+.form-select {
+  padding-right: 3rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='11' fill='%23#{string.slice(meta.inspect($color-2), 2)}'/%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none' d='M8 10l4 4 4-4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 24px;
+}
+
+// Tom Select — match the native .form-select look/height
+.ts-wrapper {
+  .ts-control {
+    color: $color-2 !important;
+    background-color: white !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='11' fill='%23#{string.slice(meta.inspect($color-2), 2)}'/%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none' d='M8 10l4 4 4-4'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 0.75rem center !important;
+    background-size: 24px !important;
+    border: 1px solid #dee2e6 !important;
+    border-radius: 10px !important;
+    padding: 12px 3rem 12px 16px !important;
+
+    &::after {
+      display: none !important;
+    }
+
+    .item {
+      padding: 0 !important;
+      color: $color-2 !important;
+
+      &[data-value=""] {
+        color: var(--bs-secondary-color) !important;
+      }
+    }
+  }
+
+  &.focus .ts-control {
+    border-color: $color-2 !important;
+    box-shadow: 0px 0px 8px 0px rgba($color-2, 0.15) !important;
+    outline: 0 !important;
+  }
+
+  .ts-dropdown {
+    background-color: white !important;
+    border: 1px solid $color-2 !important;
+    border-radius: 10px !important;
+    box-shadow: 0px 0px 12px 0px rgba($color-2, 0.3) !important;
+    margin-top: 0.25rem;
+
+    .option {
+      padding: 12px 16px !important;
+      border-radius: 5px !important;
+      margin: 4px 8px !important;
+
+      &:hover,
+      &.active {
+        background-color: rgba($color-2, 0.1) !important;
+        color: $color-2 !important;
+      }
+    }
+  }
+}
+
+// =============================================================================
+// HEADER & NAVIGATION
+// =============================================================================
+header {
+  background-color: $color-8;
+  height: $header-height;
+
+  .navbar {
+    height: 100%;
+  }
+}
+
+.navbar {
+  .offcanvas {
+    .offcanvas-header {
+      height: $header-height;
+    }
+
+    .offcanvas-title img {
+      height: 50px;
+      width: auto;
+    }
+  }
+
+  &.fixed-top {
+    box-shadow: 0 2px 4px rgba($color-2, 0.1);
+  }
+
+  .navbar-logo {
+    height: 64px;
+    width: auto;
+    filter: grayscale(100%) contrast(0.8) brightness(1.3);
+  }
+
+  .nav-link {
+    color: $color-4 !important;
+    transition: color 0.3s ease;
+    font-size: 15px;
+    font-weight: 500;
+
+    &:hover {
+      color: $color-1 !important;
+    }
+
+    &.active {
+      font-weight: 800;
+    }
+  }
+
+  .navbar-brand {
+    color: $color-2;
+    &:hover { color: $color-1; }
+  }
+
+  .navbar-collapse { flex-grow: 0; }
+
+  .navbar-nav {
+    margin: 0 auto;
+
+    .nav-item {
+      margin-right: 40px;
+      &:last-child { margin-right: 0; }
+    }
+  }
+
+  .offcanvas .navbar-nav .nav-item {
+    margin-right: 0;
+  }
+}
+
+// =============================================================================
+// DROPDOWN
+// =============================================================================
+.dropdown-menu {
+  border: none !important;
+  box-shadow: 0 4px 12px rgba($color-2, 0.15) !important;
+  border-radius: 10px !important;
+  overflow: hidden;
+  padding: 0 !important;
+  background-color: $color-1 !important;
+
+  .dropdown-item {
+    padding: 12px 20px !important;
+    font-size: 15px;
+    font-weight: 500;
+    color: white !important;
+
+    &:hover {
+      background-color: color.adjust($color-1, $lightness: -5%) !important;
+      color: white !important;
+    }
+  }
+}
+
+.navbar-nav .dropdown:hover .dropdown-menu {
+  display: block;
+  margin-top: 0;
+}
+
+// =============================================================================
+// FOOTER
+// =============================================================================
+footer {
+  position: relative;
+  overflow: hidden;
+  background-color: $color-2;
+  color: white;
+  font-size: 15px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('/images/aca/trama-footer.svg');
+    background-repeat: repeat;
+    opacity: 0.03;
+    pointer-events: none;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .footer-logo {
+    max-height: 100px;
+    width: auto;
+    filter: brightness(0) invert(1);
+    opacity: 0.6;
+  }
+
+  .footer-link {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $color-1;
+    }
+  }
+
+  .footer-social {
+    color: white;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $color-1;
+    }
+  }
+
+  .footer-divider {
+    color: white;
+    opacity: 0.5;
+    margin: 0;
+  }
+}
+
+// =============================================================================
+// PAGINATION
+// =============================================================================
+.pagination {
+  .page-item {
+    .page-link {
+      border: none;
+      background-color: transparent;
+      color: $color-2;
+      border-radius: 50%;
+      width: 26px;
+      height: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 4px;
+
+      &:hover {
+        background-color: $color-1;
+        color: white;
+      }
+    }
+
+    &.active .page-link {
+      background-color: $color-1;
+      color: white;
+
+      &:hover {
+        background-color: $color-1;
+        color: white;
+      }
+    }
+  }
+}
+
+// =============================================================================
+// ACCORDION
+// =============================================================================
+.accordion-item {
+  background-color: $color-8;
+  border-radius: 15px !important;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.accordion-button {
+  background-color: $color-8;
+  color: $color-4;
+  font-size: 20px;
+
+  &:not(.collapsed) {
+    background-color: $color-8;
+    color: $color-4;
+  }
+
+  &::after {
+    filter: brightness(0) saturate(100%) invert(11%) sepia(79%) saturate(3247%) hue-rotate(228deg) brightness(78%) contrast(104%);
+  }
+}
+
+.accordion-body {
+  background-color: $color-8;
+}
+
+// =============================================================================
+// TABLES
+// =============================================================================
+.table {
+  width: auto;
+  font-size: 13px;
+  border: 1px solid $color-4;
+  border-radius: 10px;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+
+  th,
+  td {
+    background-color: white;
+    color: $color-4 !important;
+    vertical-align: top;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border: 0;
+    border-right: 1px solid $color-4;
+    border-bottom: 1px solid $color-4;
+  }
+
+  tr > th:last-child,
+  tr > td:last-child {
+    border-right: 0;
+  }
+
+  tbody > tr:last-child > th,
+  tbody > tr:last-child > td {
+    border-bottom: 0;
+  }
+}
+
+// =============================================================================
+// CAROUSEL
+// =============================================================================
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: brightness(0) saturate(100%) invert(11%) sepia(79%) saturate(3247%) hue-rotate(228deg) brightness(78%) contrast(104%);
+}
+
+// =============================================================================
+// PRODUCT PAGE — THUMBNAILS
+// =============================================================================
+.product-thumbnails {
+  position: static;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  right: auto;
+  bottom: auto;
+  left: auto;
+}
+
+.product-thumbnails .product-thumbnail {
+  width: 72px !important;
+  height: auto !important;
+  flex: none !important;
+  text-indent: 0 !important;
+  opacity: 1 !important;
+  background-color: transparent !important;
+  background-clip: unset !important;
+  border: 2px solid transparent !important;
+  border-radius: 4px;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color 0.2s;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  &.active,
+  &:hover {
+    border-color: $color-1 !important;
+  }
+}
+
+// =============================================================================
+// HERO CAROUSEL
+// =============================================================================
+.hero-slide {
+  min-height: 650px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.hero-slide-1 {
+  background-image: url('/images/aca/fondo-home-slider-01.jpg');
+  background-position: right center;
+
+}
+
+.hero-slide-2 {
+  background-image: url('/images/aca/fondo-home-slider-01.jpg');
+  background-position: right center;
+
+}
+
+#heroCarousel {
+  .carousel-indicators {
+    margin-bottom: 2rem;
+
+    [data-bs-target] {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: none;
+      opacity: 0.5;
+      background-color: white;
+      margin: 0 6px;
+
+      &.active {
+        opacity: 1;
+        background-color: white;
+      }
+    }
+  }
+}
+
+// =============================================================================
+// CTA DISTRIBUIDORES
+// =============================================================================
+.cta-distribuidores {
+  background-image: url('/images/aca/fondo-vender-productos.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+// =============================================================================
+// PRODUCTS HERO
+// =============================================================================
+.hero-interna {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(to right, color.adjust($color-2, $lightness: -5%), $color-2);
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('/images/aca/trama-hero-interna.svg');
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: auto 100%;
+    pointer-events: none;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+// =============================================================================
+// LOGO GRAYSCALE
+// =============================================================================
+// Same treatment as .navbar-logo, for reuse outside the header
+.logo-grayscale {
+  filter: grayscale(100%) contrast(0.8) brightness(1.3);
+}
+
+// Tints the multi-color ACA logo toward the muted olive tone ($color-18)
+// used by the surrounding line icons — same brightness(0)-based recipe as
+// the accordion chevron filter, since a plain hue-rotate can't unify two
+// very different source colors (navy + orange) into one flat tone
+.logo-tint-18 {
+  filter: brightness(0) saturate(100%) invert(75%) sepia(8%) saturate(573%) hue-rotate(40deg) brightness(92%) contrast(88%);
+}
+
+// =============================================================================
+// ABOUT
+// =============================================================================
+.about-hero {
+  background-image: url('/images/aca/fondo-nosotros-hero.jpg');  background-position: right center;
+
+}
+
+.commercial-network-hero {
+  background-image: url('/images/aca/fondo-red-comercial-hero.jpg');  background-position: right center;
+
+}
+
+.join-network-hero {
+  background-image: url('/images/aca/fondo-sumate-red.jpg');  background-position: center;
+
+}
+
+// =============================================================================
+// SUSTAINABILITY
+// =============================================================================
+.sustainability-hero {
+  background-image: url('/images/aca/fondo-sostenibilidad-hero.jpg');  background-position: center;
+
+}
+
+.recyclable-packaging {
+  position: relative;
+  overflow: hidden;
+  background-image: url('/images/aca/fondo-empaque-reciclable.jpg');  background-position: center;
+
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('/images/aca/trama-hero-interna.svg');
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: auto 100%;
+    pointer-events: none;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+// =============================================================================
+// PRODUCT LIFECYCLE STEPS
+// =============================================================================
+// Mobile: a simple stacked column per step (label -> dot -> circle, always
+// in that order). Desktop (>=992px): a 6-column CSS grid where every
+// step's circle shares the same grid row regardless of whether its label
+// sits above or below it, so all 6 circles stay aligned in one line.
+.steps-grid {
+  display: flex;
+  flex-direction: column;
+  row-gap: 4rem;
+}
+
+.step-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  .step-label { order: 1; }
+  .step-dot { order: 2; }
+  .step-circle-wrap { order: 3; }
+}
+
+.step-dot {
+  width: 12px;
+  height: 12px;
+}
+
+.step-circle {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-arc {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+
+  circle {
+    fill: none;
+    stroke: $color-17;
+    stroke-width: 10;
+    stroke-linecap: round;
+    transform-origin: 100px 100px;
+  }
+}
+
+.step-arc-top circle { transform: rotate(-140deg); }
+.step-arc-bottom circle { transform: rotate(40deg); }
+
+// Mobile always stacks label -> dot -> circle, so the dot sits above the
+// circle — force the arc to the bottom on every item, regardless of each
+// item's desktop arc side.
+@media (max-width: 991.98px) {
+  .step-arc-top circle { transform: rotate(40deg); }
+}
+
+@media (min-width: 992px) {
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 1rem;
+    row-gap: 0;
+    justify-items: center;
+  }
+
+  .step-item {
+    display: contents;
+  }
+
+  .step-item .step-label { grid-row: 1; }
+  .step-item .step-dot { grid-row: 2; }
+  .step-item .step-circle-wrap { grid-row: 3; }
+
+  .step-item-reverse .step-circle-wrap { grid-row: 3; }
+  .step-item-reverse .step-dot { grid-row: 4; }
+  .step-item-reverse .step-label { grid-row: 5; }
+
+  @for $i from 1 through 6 {
+    .step-col-#{$i} > * { grid-column: #{$i}; }
+  }
+}
+
+// =============================================================================
+// DOME DIVIDER
+// =============================================================================
+// Curved divider (matches the footer wave technique) filled with a given
+// brand color — combine with any element to get a dome-shaped bottom edge,
+// e.g. class="bg-color-1 dome-1"
+$dome-colors: (1: $color-1, 2: $color-2, 5: $color-5, 6: $color-6, 15: $color-15, 16: $color-16, 17: $color-17);
+
+@each $num, $color in $dome-colors {
+  .dome-#{$num} {
+    position: relative;
+    isolation: isolate;
+    padding-bottom: 4rem !important;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 40px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 180' preserveAspectRatio='none'%3E%3Cpath d='M0 120 Q600 -120 1200 120 L1200 180 L0 180 Z' fill='%23#{string.slice(meta.inspect($color), 2)}'/%3E%3C/svg%3E");
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      pointer-events: none;
+    }
+  }
+}
+
+// =============================================================================
+// COLOR UTILITIES
+// =============================================================================
+@each $num, $color in $colors {
+  .text-color-#{$num} { color: $color; }
+  .bg-color-#{$num} { background-color: $color; }
+  .border-color-#{$num} { border-color: $color !important; }
+}
+

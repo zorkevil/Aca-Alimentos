@@ -1,0 +1,21 @@
+// =============================================================================
+// VARIABLES — GLOBAL (shared across all brands)
+// =============================================================================
+
+// Layout
+$header-height: 97px;
+
+// Spacing
+$space-6: 4rem;   // 64px
+$space-7: 5rem;   // 80px
+$space-8: 6rem;   // 96px
+
+// Breakpoints
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
