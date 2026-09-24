@@ -3,7 +3,7 @@
 // =============================================================================
 
 // Prevent horizontal scroll caused by Bootstrap offcanvas transform
-.brand-shell { overflow-x: hidden; }
+body { overflow-x: hidden; }
 
 // =============================================================================
 // FONT WEIGHT UTILITIES

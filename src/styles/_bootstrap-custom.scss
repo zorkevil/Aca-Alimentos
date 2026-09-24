@@ -98,7 +98,7 @@ $max-height-values: (50: 50px, 100: 100px, 150: 150px, 200: 200px, 300: 300px);
 }
 
 // Max width utilities (px)
-$max-width-values: (50: 50px, 100: 100px, 150: 150px, 200: 200px, 300: 300px);
+$max-width-values: (50: 50px, 100: 100px, 150: 150px, 200: 200px, 250: 250px, 300: 300px);
 
 @each $key, $value in $max-width-values {
   .mw-#{$key} { max-width: $value !important; }

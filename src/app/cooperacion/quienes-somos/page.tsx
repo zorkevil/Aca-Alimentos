@@ -15,9 +15,9 @@ const CARE_APPROACH = [
 ];
 
 const GUIDING_PRINCIPLES = [
-  { image: '/images/cooperacion/img-guia-01.jpg', title: 'Nutrición simple y completa', text: 'Desarrollamos alimentos completos y balanceados para que cuidar la alimentación de tu mascota sea una elección simple.' },
-  { image: '/images/cooperacion/img-guia-02.jpg', title: 'Cercanía', text: 'Entendemos que cada mascota forma parte de una familia y queremos acompañarla todos los días.' },
-  { image: '/images/cooperacion/img-guia-03.jpg', title: 'Compromiso con el ambiente', text: 'Creemos que cuidar a las mascotas también implica cuidar el entorno en el que viven. Por eso elegimos envases 100% reciclables y avanzamos hacia una producción cada vez más responsable.' },
+  { image: '/images/cooperacion/img-guia-01.webp', title: 'Nutrición simple y completa', text: 'Desarrollamos alimentos completos y balanceados para que cuidar la alimentación de tu mascota sea una elección simple.' },
+  { image: '/images/cooperacion/img-guia-02.webp', title: 'Cercanía', text: 'Entendemos que cada mascota forma parte de una familia y queremos acompañarla todos los días.' },
+  { image: '/images/cooperacion/img-guia-03.webp', title: 'Compromiso con el ambiente', text: 'Creemos que cuidar a las mascotas también implica cuidar el entorno en el que viven. Por eso elegimos envases 100% reciclables y avanzamos hacia una producción cada vez más responsable.' },
 ];
 
 export default async function CooperacionQuienesSomosPage() {

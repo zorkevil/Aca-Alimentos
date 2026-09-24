@@ -93,13 +93,17 @@ export default function BrandFooter({ brand, section, showWhereToBuy = true }: B
               {section?.contactPhone && (
                 <div className="d-flex align-items-center gap-3">
                   <i className="bi bi-telephone fs-5" />
-                  <span>{section.contactPhone}</span>
+                  <a href={`tel:${section.contactPhone}`} className="footer-link">
+                    {section.contactPhone}
+                  </a>
                 </div>
               )}
               {section?.contactEmail && (
                 <div className="d-flex align-items-center gap-3">
                   <i className="bi bi-envelope fs-5" />
-                  <span>{section.contactEmail}</span>
+                  <a href={`mailto:${section.contactEmail}`} className="footer-link">
+                    {section.contactEmail}
+                  </a>
                 </div>
               )}
             </div>

@@ -15,9 +15,9 @@ const NUTRITION_APPROACH = [
 ];
 
 const GUIDING_PRINCIPLES = [
-  { image: '/images/valor/img-guia-01.jpg', color: 7, title: 'CALIDAD', text: 'Cada fórmula parte de una mirada nutricional fundamentada, porque entendemos que una buena alimentación requiere criterio y precisión.' },
-  { image: '/images/valor/img-guia-02.jpg', color: 3, title: 'COMPROMISO', text: 'Trabajamos para desarrollar alimentos que respondan a las necesidades reales de perros y gatos en cada etapa de su vida.' },
-  { image: '/images/valor/img-guia-03.jpg', color: 9, title: 'CONFIANZA', text: 'Creemos que elegir un alimento también implica confiar en la marca, conocimiento y tecnología que está detrás de cada fórmula.' },
+  { image: '/images/valor/img-guia-01.webp', color: 7, title: 'CALIDAD', text: 'Cada fórmula parte de una mirada nutricional fundamentada, porque entendemos que una buena alimentación requiere criterio y precisión.' },
+  { image: '/images/valor/img-guia-02.webp', color: 3, title: 'COMPROMISO', text: 'Trabajamos para desarrollar alimentos que respondan a las necesidades reales de perros y gatos en cada etapa de su vida.' },
+  { image: '/images/valor/img-guia-03.webp', color: 9, title: 'CONFIANZA', text: 'Creemos que elegir un alimento también implica confiar en la marca, conocimiento y tecnología que está detrás de cada fórmula.' },
 ];
 
 export default async function ValorQuienesSomosPage() {
@@ -75,7 +75,7 @@ export default async function ValorQuienesSomosPage() {
             {NUTRITION_APPROACH.map((item, i) => (
               <div className="col-md-6 col-lg-3 wow animate__animated animate__fadeInUp" data-wow-delay={i > 0 ? `${i * 0.1}s` : undefined} key={item.title}>
                 <Image src={item.icon} alt="" width={150} height={150} className="icon-150 mb-3" />
-                <h4 className={`font-montserrat fw-bold text-color-${item.color} mb-0`}>{item.title}</h4>
+                <h4 className={`text-color-${item.color} mb-0`}>{item.title}</h4>
                 <hr className={`heading-hr-sm text-color-${item.color} mx-auto`} />
                 <p className="fs-18 mb-0">{item.text}</p>
               </div>
@@ -123,7 +123,7 @@ export default async function ValorQuienesSomosPage() {
                 <div className="h-100 border-radius-25 bg-color-12 overflow-hidden">
                   <Image src={item.image} alt="" width={400} height={280} className="img-fluid w-100" />
                   <div className="p-4">
-                    <h4 className={`fw-bold text-color-${item.color} mb-3`}>{item.title}</h4>
+                    <h4 className={`fs-48 text-color-${item.color} mb-3`}>{item.title}</h4>
                     <p className="fs-18 mb-0">{item.text}</p>
                   </div>
                 </div>

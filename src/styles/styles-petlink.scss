@@ -302,21 +302,24 @@ ul.chevron-list-white li::before { color: white; }
 // CONTACT
 // =============================================================================
 .contact-hero {
-  background-image: url('/images/petlink/fondo-contacto-hero.jpg');  background-position: center bottom;
-
+  background-image: url('/images/petlink/fondo-contacto-hero.jpg');
+  background-size: cover;
+  background-position: center bottom;
 }
 
 // =============================================================================
 // QUIENES SOMOS
 // =============================================================================
 .about-hero {
-  background-image: url('/images/petlink/fondo-quienes-somos-hero.jpg');  background-position: center bottom;
-
+  background-image: url('/images/petlink/fondo-quienes-somos-hero.webp');
+  background-size: cover;
+  background-position: center bottom;
 }
 
 #who-its-for {
-  background-image: url('/images/petlink/fondo-para-quienes.jpg');  background-position: center;
-
+  background-image: url('/images/petlink/fondo-para-quienes.webp');
+  background-size: cover;
+  background-position: center;
 
   ul {
     list-style: none;
@@ -353,7 +356,9 @@ ul.chevron-list-white li::before { color: white; }
 // FAQS
 // =============================================================================
 .faqs-hero {
-  background-image: url('/images/petlink/fondo-faqs-hero.jpg');  background-position: center bottom;
+  background-image: url('/images/petlink/fondo-faqs-hero.jpg');
+  background-size: cover;
+  background-position: center bottom;
 
 }
 
@@ -393,7 +398,9 @@ ul.chevron-list-white li::before { color: white; }
 }
 
 .bond-hero {
-  background-image: url('/images/petlink/fondo-vinculo-hero.jpg');  background-position: center bottom;
+  background-image: url('/images/petlink/fondo-vinculo-hero.jpg');
+  background-size: cover;
+  background-position: center bottom;
 
 }
 
@@ -519,16 +526,18 @@ ul.chevron-list-white li::before { color: white; }
 }
 
 .feeding-cta {
-  background-image: url('/images/petlink/fondo-alimentarlo.jpg');  background-position: center;
-
+  background-image: url('/images/petlink/fondo-alimentarlo.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 // =============================================================================
 // 404
 // =============================================================================
 .error-404-hero {
-  background-image: url('/images/petlink/fondo-404-hero.jpg');  background-position: center bottom;
-
+  background-image: url('/images/petlink/fondo-404-hero.webp');
+  background-size: cover;
+  background-position: center bottom;
 }
 
 // =============================================================================
@@ -905,6 +914,10 @@ main > section:last-of-type {
   position: relative;
   padding-bottom: calc(100vw * 500 / 1920);
 
+  @media (max-width: 991.98px) {
+    padding-top: 300px;
+  }
+
   &::before {
     content: '';
     position: absolute;
@@ -934,15 +947,23 @@ main > section:last-of-type {
 }
 
 .hero-slide-1 {
-  background-image: url('/images/petlink/fondo-home-slider-01.jpg');
-  background-position: right center;
+  background-image: url('/images/petlink/fondo-home-slider-01-mobile.jpg');
+  background-position: center top;
 
+  @media (min-width: 992px) {
+    background-image: url('/images/petlink/fondo-home-slider-01.jpg');
+    background-position: center;
+  }
 }
 
 .hero-slide-2 {
-  background-image: url('/images/petlink/fondo-home-slider-01.jpg');
-  background-position: right center;
+  background-image: url('/images/petlink/fondo-home-slider-01-mobile.jpg');
+  background-position: center top;
 
+  @media (min-width: 992px) {
+    background-image: url('/images/petlink/fondo-home-slider-01.jpg');
+    background-position: center;
+  }
 }
 
 #heroCarousel {

@@ -3,9 +3,11 @@ import Image from 'next/image';
 const BRANDS = [
   {
     href: '/cooperacion',
-    image: '/images/aca/img-cooperacion.jpg',
+    image: '/images/aca/img-cooperacion.webp',
     logo: '/images/cooperacion/logo-cooperacion-color.svg',
-    logoWidth: 200,
+    logoClass: 'mw-200',
+    slogan: '/images/cooperacion/slogan-cooperacion.svg',
+    sloganClass: 'mw-200',
     bg: 'bg-color-12',
     text: 'text-color-4',
     name: 'Cooperación',
@@ -13,9 +15,11 @@ const BRANDS = [
   },
   {
     href: '/valor',
-    image: '/images/aca/img-valor.jpg',
+    image: '/images/aca/img-valor.webp',
     logo: '/images/valor/logo-valor-color.svg',
-    logoWidth: 200,
+    logoClass: 'mw-200',
+    slogan: '/images/valor/slogan-valor.svg',
+    sloganClass: 'mw-250',
     bg: 'bg-color-13',
     text: 'text-color-4',
     name: 'Valor',
@@ -23,9 +27,11 @@ const BRANDS = [
   },
   {
     href: '/petlink',
-    image: '/images/aca/img-petlink.jpg',
+    image: '/images/aca/img-petlink.webp',
     logo: '/images/petlink/logo-petlink-blanco.svg',
-    logoWidth: 150,
+    logoClass: 'mw-150',
+    slogan: '/images/petlink/slogan-petlink-blanco.svg',
+    sloganClass: 'mw-250',
     bg: 'bg-color-14',
     text: 'text-white',
     name: 'Petlink',
@@ -44,7 +50,7 @@ type BrandsGridProps = {
 
 export default function BrandsGrid({ shaded = false, subtitle = false }: BrandsGridProps) {
   return (
-    <section className={`py-5 py-md-7 ${shaded ? 'bg-color-8' : ''}`}>
+    <section id="nuestras-marcas" className={`py-5 py-md-7 ${shaded ? 'bg-color-8' : ''}`}>
       <div className="container">
         <div className="row mb-5">
           <div className={subtitle ? 'col-lg-8 mx-auto text-center' : 'col-12'}>
@@ -71,8 +77,12 @@ export default function BrandsGrid({ shaded = false, subtitle = false }: BrandsG
               <a href={brand.href} className="d-flex flex-column h-100 border-radius-25 overflow-hidden text-decoration-none">
                 <Image src={brand.image} alt="" width={640} height={480} className="img-fluid w-100" />
                 <div className={`${brand.bg} p-4 text-center flex-grow-1 d-flex flex-column align-items-center justify-content-center`}>
-                  <Image src={brand.logo} alt={brand.name} width={brand.logoWidth} height={100} className="mw-200 mh-100 mb-3" />
-                  <p className={`${brand.text} mb-0`}>{brand.tagline}</p>
+                  {/* eslint-disable-next-line @next/next/no-img-element -- SVG sin
+                      width/height intrínsecos: next/image fuerza un box con el
+                      aspect-ratio de los props, no el real del archivo (mismo caso que BrandHero). */}
+                  <img src={brand.logo} alt={brand.name} className={`${brand.logoClass} mh-100 mb-3`} />
+                  {/* eslint-disable-next-line @next/next/no-img-element -- ídem */}
+                  <img src={brand.slogan} alt={brand.tagline} className={`w-100 ${brand.sloganClass}`} />
                 </div>
               </a>
             </div>

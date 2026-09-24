@@ -607,11 +607,15 @@ footer {
   background-position: center;
   position: relative;
 
+  @media (max-width: 991.98px) {
+    padding-top: 300px;
+  }
+
   &::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
   }
 
   .container {
@@ -621,15 +625,23 @@ footer {
 }
 
 .hero-slide-1 {
-  background-image: url('/images/aca/fondo-home-slider-01.jpg');
-  background-position: right center;
+  background-image: url('/images/aca/fondo-home-slider-01-mobile.jpg');
+  background-position: center top;
 
+  @media (min-width: 992px) {
+    background-image: url('/images/aca/fondo-home-slider-01.jpg');
+    background-position: center;
+  }
 }
 
 .hero-slide-2 {
-  background-image: url('/images/aca/fondo-home-slider-01.jpg');
-  background-position: right center;
+  background-image: url('/images/aca/fondo-home-slider-01-mobile.jpg');
+  background-position: center top;
 
+  @media (min-width: 992px) {
+    background-image: url('/images/aca/fondo-home-slider-01.jpg');
+    background-position: center;
+  }
 }
 
 #heroCarousel {
@@ -657,7 +669,7 @@ footer {
 // CTA DISTRIBUIDORES
 // =============================================================================
 .cta-distribuidores {
-  background-image: url('/images/aca/fondo-vender-productos.jpg');
+  background-image: url('/images/aca/fondo-vender-productos.webp');
   background-size: cover;
   background-position: center;
   position: relative;
@@ -720,35 +732,48 @@ footer {
 // ABOUT
 // =============================================================================
 .about-hero {
-  background-image: url('/images/aca/fondo-nosotros-hero.jpg');  background-position: right center;
-
+  background-image: url('/images/aca/fondo-nosotros-hero.webp');
+  background-size: cover;
+  background-position: right center;
 }
 
 .commercial-network-hero {
-  background-image: url('/images/aca/fondo-red-comercial-hero.jpg');  background-position: right center;
-
+  background-image: url('/images/aca/fondo-red-comercial-hero.webp');
+  background-size: cover;
+  background-position: center;
 }
 
 .join-network-hero {
-  background-image: url('/images/aca/fondo-sumate-red.jpg');  background-position: center;
-
+  background-image: url('/images/aca/fondo-sumate-red.webp');
+  background-size: cover;
+  background-position: center;
 }
 
 // =============================================================================
 // SUSTAINABILITY
 // =============================================================================
 .sustainability-hero {
-  background-image: url('/images/aca/fondo-sostenibilidad-hero.jpg');  background-position: center;
-
+  background-image: url('/images/aca/fondo-sostenibilidad-hero.webp');
+  background-size: cover;
+  background-position: center;
 }
 
 .recyclable-packaging {
   position: relative;
   overflow: hidden;
-  background-image: url('/images/aca/fondo-empaque-reciclable.jpg');  background-position: center;
-
+  background-image: url('/images/aca/fondo-empaque-reciclable.webp');
+  background-size: cover;
+  background-position: center right;
 
   &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.2) 100%);
+    pointer-events: none;
+  }
+
+  &::after {
     content: '';
     position: absolute;
     inset: 0;
@@ -794,10 +819,17 @@ footer {
   height: 12px;
 }
 
+// The circle shrinks with its column (up to 200px); the arc SVG uses a
+// viewBox, so its stroke scales along with it.
+.step-circle-wrap {
+  width: 100%;
+  max-width: 200px;
+}
+
 .step-circle {
   position: relative;
-  width: 200px;
-  height: 200px;
+  width: 100%;
+  aspect-ratio: 1 / 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -820,6 +852,13 @@ footer {
   }
 }
 
+// Step 1 keeps the base $color-17 stroke; steps 2-6 fade progressively
+$step-arc-colors: (2: $color-19, 3: $color-20, 4: $color-21, 5: $color-22, 6: $color-23);
+
+@each $i, $color in $step-arc-colors {
+  .step-col-#{$i} .step-arc circle { stroke: $color; }
+}
+
 .step-arc-top circle { transform: rotate(-140deg); }
 .step-arc-bottom circle { transform: rotate(40deg); }
 
@@ -833,8 +872,8 @@ footer {
 @media (min-width: 992px) {
   .steps-grid {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    column-gap: 1rem;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    column-gap: 2rem;
     row-gap: 0;
     justify-items: center;
   }

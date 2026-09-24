@@ -1,0 +1,27 @@
+/* =============================================================================
+   Paleta de colores del proyecto — reemplazar con los tokens reales del cliente.
+   Convención: .text-color-N / .bg-color-N / .border-color-N
+============================================================================= */
+.text-color-1 {
+  color: #333;
+}
+.bg-color-1 {
+  background-color: #333;
+}
+.border-color-1 {
+  border-color: #333 !important;
+}
+
+/* =============================================================================
+   Extensiones a la escala de spacing de Bootstrap (si m-1..5 / p-1..5 se quedan cortos)
+============================================================================= */
+.m-6 {
+  margin: 4rem !important;
+}
+.p-6 {
+  padding: 4rem !important;
+}
+
+/* =============================================================================
+   Overrides puntuales de componentes Bootstrap (agregar acá, no en el JSX)
+============================================================================= */

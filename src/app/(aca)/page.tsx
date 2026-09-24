@@ -11,50 +11,20 @@ export default async function AcaHomePage() {
       <section>
         <h1 className="visually-hidden">Alimentos balanceados</h1>
         {sliders.length === 0 ? (
-          <div id="heroCarousel" className="carousel slide" data-bs-ride="carousel">
-            <div className="carousel-indicators">
-              <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to={0} className="active" aria-current="true" aria-label="Slide 1" />
-              <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to={1} aria-label="Slide 2" />
-            </div>
-            <div className="carousel-inner">
-              <div className="carousel-item active">
-                <div className="hero-slide hero-slide-1 d-flex align-items-center">
-                  <div className="container py-5 py-md-7">
-                    <div className="row align-items-center">
-                      <div className="col-lg-6">
-                        <h2 className="h1 text-white mb-4 wow animate__animated animate__fadeInUp">
-                          Detrás de cada alimento, una experiencia que nutre.
-                        </h2>
-                        <p className="fs-20 text-white mb-4 wow animate__animated animate__fadeInUp" data-wow-delay="0.2s">
-                          Desarrollamos alimentos balanceados para perros y gatos con un compromiso simple:
-                          contribuir a su bienestar a través de una nutrición completa, equilibrada y de calidad.
-                        </p>
-                        <Link href="/nosotros" className="btn btn-tertiary wow animate__animated animate__fadeInUp" data-wow-delay="0.4s">
-                          Conocé nuestras marcas
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="carousel-item">
-                <div className="hero-slide hero-slide-2 d-flex align-items-center">
-                  <div className="container py-5 py-md-7">
-                    <div className="row align-items-center">
-                      <div className="col-lg-6">
-                        <h2 className="h1 text-white mb-4 wow animate__animated animate__fadeInUp">
-                          Detrás de cada alimento, una experiencia que nutre.
-                        </h2>
-                        <p className="fs-20 text-white mb-4 wow animate__animated animate__fadeInUp" data-wow-delay="0.2s">
-                          Desarrollamos alimentos balanceados para perros y gatos con un compromiso simple:
-                          contribuir a su bienestar a través de una nutrición completa, equilibrada y de calidad.
-                        </p>
-                        <Link href="/nosotros" className="btn btn-tertiary wow animate__animated animate__fadeInUp" data-wow-delay="0.4s">
-                          Conocé nuestras marcas
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
+          <div className="hero-slide hero-slide-1 d-flex align-items-center">
+            <div className="container py-5 py-md-7">
+              <div className="row align-items-center">
+                <div className="col-lg-6">
+                  <h2 className="h1 text-white mb-4 wow animate__animated animate__fadeInUp">
+                    Detrás de cada alimento, una experiencia que nutre.
+                  </h2>
+                  <p className="fs-20 text-white mb-4 wow animate__animated animate__fadeInUp" data-wow-delay="0.2s">
+                    Desarrollamos alimentos balanceados para perros y gatos con un compromiso simple:
+                    contribuir a su bienestar a través de una nutrición completa, equilibrada y de calidad.
+                  </p>
+                  <Link href="#nuestras-marcas" className="btn btn-tertiary wow animate__animated animate__fadeInUp" data-wow-delay="0.4s">
+                    Conocé nuestras marcas
+                  </Link>
                 </div>
               </div>
             </div>

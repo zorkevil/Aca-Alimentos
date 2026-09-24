@@ -329,28 +329,35 @@ ul.chevron-list-white li::before { color: white; }
 .contact-hero, .about-hero {
   background-image: url('/images/cooperacion/fondo-contacto-hero.jpg');
   background-size: cover;
-  background-position: center;
+  background-position: right center;
+
+  @media (min-width: 960px) {
+    background-position: center;
+  }
 }
 
 // =============================================================================
 // FAQS
 // =============================================================================
 .faqs-hero {
-  background-image: url('/images/cooperacion/fondo-faqs-hero.jpg');  background-position: center;
-
+  background-image: url('/images/cooperacion/fondo-faqs-hero.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 // =============================================================================
 // SUSTENTABILIDAD
 // =============================================================================
 .sustainability-hero {
-  background-image: url('/images/cooperacion/fondo-sustentabilidad-hero.jpg');  background-position: center;
-
+  background-image: url('/images/cooperacion/fondo-sustentabilidad-hero.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .sustainability-cta {
-  background-image: url('/images/cooperacion/fondo-sabroso-balanceado-amigable.jpg');  background-position: center;
-
+  background-image: url('/images/cooperacion/fondo-sabroso-balanceado-amigable.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 #eco-packaging {
@@ -411,8 +418,9 @@ ul.chevron-list-white li::before { color: white; }
 // 404
 // =============================================================================
 .error-404-hero {
-  background-image: url('/images/cooperacion/fondo-404-hero.jpg');  background-position: bottom right;
-
+  background-image: url('/images/cooperacion/fondo-404-hero.webp');
+  background-size: cover;
+  background-position: bottom right;
 }
 
 // =============================================================================
@@ -514,8 +522,9 @@ ul.chevron-list-white li::before { color: white; }
 #who-its-for {
   position: relative;
   isolation: isolate;
-  background-image: url('/images/cooperacion/fondo-para-quienes.jpg');  background-position: center;
-
+  background-image: url('/images/cooperacion/fondo-para-quienes.webp');
+  background-size: cover;
+  background-position: center;
 
   ul {
     list-style: none;
@@ -824,6 +833,10 @@ footer {
   position: relative;
   padding-bottom: calc(100vw * 500 / 1920);
 
+  @media (max-width: 991.98px) {
+    padding-top: 300px;
+  }
+
   &::before {
     content: '';
     position: absolute;
@@ -845,15 +858,23 @@ footer {
 }
 
 .hero-slide-1 {
-  background-image: url('/images/cooperacion/fondo-home-slider-01.jpg');
-  background-position: right center;
+  background-image: url('/images/cooperacion/fondo-home-slider-01-mobile.jpg');
+  background-position: center top;
 
+  @media (min-width: 992px) {
+    background-image: url('/images/cooperacion/fondo-home-slider-01.jpg');
+    background-position: center;
+  }
 }
 
 .hero-slide-2 {
-  background-image: url('/images/cooperacion/fondo-home-slider-01.jpg');
-  background-position: right center;
+  background-image: url('/images/cooperacion/fondo-home-slider-01-mobile.jpg');
+  background-position: center top;
 
+  @media (min-width: 992px) {
+    background-image: url('/images/cooperacion/fondo-home-slider-01.jpg');
+    background-position: center;
+  }
 }
 
 #heroCarousel {

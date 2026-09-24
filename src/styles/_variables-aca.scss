@@ -26,6 +26,11 @@ $colors: (
   16: #237567,  // Green (light)
   17: #1E5245,  // Green (dark)
   18: #B0B694,  // Muted olive (icon line color)
+  19: #487165,  // $color-17 at 80% over $color-8 (lifecycle step 2)
+  20: #5E8176,  // $color-17 at 70% over $color-8 (lifecycle step 3)
+  21: #739086,  // $color-17 at 60% over $color-8 (lifecycle step 4)
+  22: #88A096,  // $color-17 at 50% over $color-8 (lifecycle step 5)
+  23: #9DAFA6,  // $color-17 at 40% over $color-8 (lifecycle step 6)
 );
 
 $color-1: map.get($colors, 1);
@@ -46,6 +51,11 @@ $color-15: map.get($colors, 15);
 $color-16: map.get($colors, 16);
 $color-17: map.get($colors, 17);
 $color-18: map.get($colors, 18);
+$color-19: map.get($colors, 19);
+$color-20: map.get($colors, 20);
+$color-21: map.get($colors, 21);
+$color-22: map.get($colors, 22);
+$color-23: map.get($colors, 23);
 
 // Typography
 // La fuente se auto-hospeda vía next/font/google (ver src/lib/fonts.ts), que expone

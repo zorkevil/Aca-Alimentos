@@ -74,7 +74,7 @@ export default async function CooperacionHomePage() {
                 className="img-fluid plato-img"
               />
             </div>
-            <div className="col-lg-3 order-lg-1 d-flex flex-column justify-content-evenly gap-4 wow animate__animated animate__fadeInUp" data-wow-delay="0.1s">
+            <div className="col-lg-3 order-lg-1 text-center text-lg-start d-flex flex-column justify-content-evenly gap-4 wow animate__animated animate__fadeInUp" data-wow-delay="0.1s">
               <div>
                 <Image src="/images/cooperacion/img-flecha-blanca-01.svg" alt="" width={40} height={40} aria-hidden className="flecha-blanca-01 d-none d-lg-block ms-auto mb-3" />
                 <h4 className="text-white">Sabor que les encanta</h4>
@@ -86,7 +86,7 @@ export default async function CooperacionHomePage() {
                 <p className="text-white">Para que estén bien alimentados y activos.</p>
               </div>
             </div>
-            <div className="col-lg-3 order-lg-3 d-flex flex-column justify-content-evenly gap-4 wow animate__animated animate__fadeInUp" data-wow-delay="0.2s">
+            <div className="col-lg-3 order-lg-3 text-center d-flex flex-column justify-content-evenly gap-4 wow animate__animated animate__fadeInUp" data-wow-delay="0.2s">
               <div>
                 <Image src="/images/cooperacion/img-flecha-blanca-03.svg" alt="" width={40} height={40} aria-hidden className="flecha-blanca-03 d-none d-lg-block me-auto mb-3" />
                 <h4 className="text-white text-lg-end">Fácil y práctico</h4>

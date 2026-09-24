@@ -17,7 +17,7 @@ const BRAND_LINKS = [
 
 const TRAILING_LINKS = [
   { href: '/productos', label: 'Productos' },
-  { href: '/sostenibilidad', label: 'Sostenibilidad' },
+  { href: '/sustentabilidad', label: 'Sustentabilidad' },
   { href: '/red-comercial', label: 'Red Comercial' },
 ] as const;
 

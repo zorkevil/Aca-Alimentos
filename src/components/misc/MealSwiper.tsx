@@ -23,7 +23,7 @@ export default function MealSwiper({ images }: MealSwiperProps) {
     >
       {images.map((image) => (
         <SwiperSlide key={image.src}>
-          <Image src={image.src} alt={image.alt} width={500} height={500} className="img-fluid" />
+          <Image src={image.src} alt={image.alt} width={636} height={636} className="w-100" />
         </SwiperSlide>
       ))}
     </Swiper>

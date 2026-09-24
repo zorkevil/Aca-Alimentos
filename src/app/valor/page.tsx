@@ -155,16 +155,9 @@ export default async function ValorHomePage() {
           </div>
         </section>
 
-        <div className="overflow-hidden">
-          <hr className="divider-left text-color-1" />
-        </div>
       </div>
 
       <div className="bg-gradient-12-13">
-        <div className="overflow-hidden">
-          <hr className="divider-right text-color-10" />
-        </div>
-
         <SocialLinks
           instagram={section?.instagram ?? null}
           facebook={section?.facebook ?? null}
@@ -178,6 +171,7 @@ export default async function ValorHomePage() {
           sectionBgClass=""
           showDivider={false}
           previewImage={{ src: '/images/valor/img-redes-sociales.png', alt: '' }}
+          bleedIntoNextSection={blogPage.data.length > 0}
         />
 
         <BlogTeaser

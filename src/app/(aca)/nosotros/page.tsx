@@ -59,7 +59,7 @@ export default function NosotrosPage() {
                 Desde la selección de ingredientes hasta la elaboración de cada producto y la entrega en cada
                 destino, trabajamos para nutrir con confianza.
               </p>
-              <a href="#" className="btn btn-primary">
+              <a href="#nuestra-capacidad-productiva" className="btn btn-primary">
                 Conocé nuestra capacidad productiva
               </a>
             </div>
@@ -67,7 +67,7 @@ export default function NosotrosPage() {
         </div>
       </section>
 
-      <section className="py-5 py-md-7">
+      <section id="nuestra-capacidad-productiva" className="py-5 py-md-7">
         <div className="container">
           <div className="row g-5 align-items-center">
             <div className="col-lg-6 wow animate__animated animate__fadeInUp">
@@ -182,7 +182,7 @@ export default function NosotrosPage() {
         <div className="container">
           <div className="row justify-content-center text-center">
             <div className="col-lg-7 wow animate__animated animate__fadeInUp">
-              <div className="d-flex align-items-center gap-4 mb-4">
+              <div className="d-flex align-items-center gap-4 mb-4 mx-xxl-2">
                 <Image src="/images/aca/logo-aca-iso-color.svg" alt="ACA" width={100} height={100} className="mw-100 mh-100 logo-grayscale flex-shrink-0" />
                 <h2 className="mb-0 text-start">
                   El respaldo de una organización <span>con más de cien años de historia</span>

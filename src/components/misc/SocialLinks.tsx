@@ -12,6 +12,11 @@ type SocialLinksProps = {
   // perfil de la marca. Valor es la excepción: su maqueta sí trae una imagen
   // de vista previa debajo de los íconos, no un placeholder vacío.
   previewImage?: { src: string; alt: string };
+  // La planta decorativa de la derecha sangra un 50% de su altura por debajo
+  // de la sección (pensada para superponerse con la sección que sigue, p.ej.
+  // el blog). Si no hay nada después (blog sin posts), esa sangría cae
+  // directo sobre el footer — se pasa `false` para que quede contenida.
+  bleedIntoNextSection?: boolean;
 };
 
 export default function SocialLinks({
@@ -21,6 +26,7 @@ export default function SocialLinks({
   sectionBgClass = 'bg-color-7',
   showDivider = true,
   previewImage,
+  bleedIntoNextSection = true,
 }: SocialLinksProps) {
   if (!instagram && !facebook) return null;
 
@@ -48,7 +54,7 @@ export default function SocialLinks({
             aria-hidden
             width={200}
             height={400}
-            className="deco-side deco-side-right"
+            className={`deco-side deco-side-right${bleedIntoNextSection ? '' : ' deco-side-contained'}`}
           />
         </>
       )}
